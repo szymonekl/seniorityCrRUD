@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Serialization;
 
 namespace my_new_app
 {
@@ -20,6 +21,17 @@ namespace my_new_app
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //ENable Cors
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
+
+            services.AddControllersWithViews().AddNewtonsoftJson(options=>
+            options.SerializerSettings.ReferenceLoopHandling=Newtonsoft
+            .Json.ReferenceLoopHandling.Ignore
+            ).AddNewtonsoftJson(options=>options.SerializerSettings.ContractResolver= new DefaultContractResolver()
+            ); 
 
             services.AddControllersWithViews();
 
