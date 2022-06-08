@@ -100,11 +100,11 @@ namespace my_new_app.Controllers
 
         }
 
-        [HttpDelete]
-        public JsonResult Delete(Department dep)
+        [HttpDelete("{Id}")]
+        public JsonResult Delete(int Id)
 
         {
-            string query = @"DELETE FROM dbo.Department WHERE DepartmentId=" + dep.DepartmentId + @"
+            string query = @"DELETE FROM dbo.Department WHERE DepartmentId=" + Id + @"
 
                    ";
             DataTable table = new DataTable();
