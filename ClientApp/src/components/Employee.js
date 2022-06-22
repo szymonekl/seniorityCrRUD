@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+//import { variables } from '../Variables.js'
 
-export class Counter extends Component {
-  static displayName = Counter.name;
+export class Employee extends Component {
+    static displayName = Employee.name;
 
   constructor(props) {
     super(props);
@@ -15,7 +16,8 @@ export class Counter extends Component {
     });
   }
 
-  render() {
+    render() {
+
     return (
       <div>
         <h1>Counter</h1>
