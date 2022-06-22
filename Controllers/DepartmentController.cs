@@ -111,8 +111,8 @@ namespace my_new_app.Controllers
         {
             string query = @"
                            delete from dbo.Department
-                            where DepartmentId=@DepartmentId
-                            ";
+                            where DepartmentId=
+                            "+id;
 
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
